@@ -12,14 +12,16 @@ function handelrequest(req, res) {
   });
 
   req.on('end', () => {
-    if(dataformat === "application/json"){
-      var parseData = JSON.parse(store);
+    if(req.method === "POST" && req.url === "/json"){
+      console.log(store);
+      res.setHeader('content-type', 'text/json');
       res.end(store);
     }
 
-    if(dataformat === "application/x-www-form-urlencoded"){
-      var parseData = qs.parse(store);
-      res.end(JSON.stringify(parseData));
+    if(req.method === "POST" && req.url === "/form"){
+      console.log(store);
+      var datac = js.parse(store);
+      res.end(JSON.stringify(store));
     }
   })
 }
