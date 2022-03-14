@@ -4,10 +4,8 @@ let fs = require('fs');
 let server = http.createServer(handlefile);
 
 function handlefile(req, res){
-    fs.createReadStream('./readme.txt', (err, data) => {
-      if(err) console.log(err);
-      res.end(data);
-    })
+  res.setHeader('Content-Type', 'text/plain');
+  fs.createReadStream('./readme.txt').pipe(res) 
 }
 
 server.listen(3000, () => {
