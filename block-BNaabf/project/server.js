@@ -17,8 +17,8 @@ function handel(req,res){
       fs.createReadStream("./form.html").pipe(res);
     }
     if(req.method === 'POST' && req.url === "/form"){
-      fs.createReadStream("./form.html").pipe(res);
-      res.end();
+      console.log(store);
+      res.end(store);
     }
   })
 }
