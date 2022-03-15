@@ -1,5 +1,6 @@
 let path = require('path');
 let http = require('http');
+let qs = require('querystring');
 console.log(__dirname);
 let aap  = '/app.js';
 let inde = './index.html';
@@ -20,7 +21,8 @@ function handelevent(req, res){
     res.writeHead(201, {
       'Content-Type': 'Appliction/json'
     });
-    res.end(store);
+    var datapars = qs.parse(store);
+    res.end(JSON.stringify(datapars));
   })
 }
 
