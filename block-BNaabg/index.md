@@ -65,7 +65,7 @@ var store = "some data here";
 // check for post request coming on '/users'
 if (req.url === "/users" && req.method === "POST") {
   // grab the username from store data
-  var username = JSON.parse(store).username;
+ var username = JSON.parse(store).username; 
   // check whether this username exists in users directory or not
 
   // We have to create a file using username + append .json to create a proper file
